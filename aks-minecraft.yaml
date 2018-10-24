@@ -1,3 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azure-managed-disk-default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: default
+  resources:
+    requests:
+      storage: 5Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -15,6 +27,9 @@ spec:
       containers:
       - name: azure-minecraft-server
         image: openhack/minecraft-server:2.0
+        volumeMounts:
+        - mountPath: "/mnt/azure"
+          name: volume
         env:
         - name: EULA
           value: "TRUE"
@@ -23,6 +38,10 @@ spec:
           name: client
         - containerPort: 25575
           name: remote
+      volumes:
+        - name: volume
+          persistentVolumeClaim:
+            claimName: azure-managed-disk-default
 ---
 apiVersion: v1
 kind: Service
