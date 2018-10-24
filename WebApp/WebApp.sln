@@ -1,0 +1,40 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{C403BF7B-1CB2-4950-8929-E5A571330494}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{8B1C2AD8-6F82-48DC-9289-F401EBBE82D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{37E09991-918D-4602-A5BA-F630E784346F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C403BF7B-1CB2-4950-8929-E5A571330494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C403BF7B-1CB2-4950-8929-E5A571330494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C403BF7B-1CB2-4950-8929-E5A571330494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C403BF7B-1CB2-4950-8929-E5A571330494}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B1C2AD8-6F82-48DC-9289-F401EBBE82D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B1C2AD8-6F82-48DC-9289-F401EBBE82D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B1C2AD8-6F82-48DC-9289-F401EBBE82D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B1C2AD8-6F82-48DC-9289-F401EBBE82D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37E09991-918D-4602-A5BA-F630E784346F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37E09991-918D-4602-A5BA-F630E784346F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37E09991-918D-4602-A5BA-F630E784346F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37E09991-918D-4602-A5BA-F630E784346F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.TextStylePolicy = $2
+		$2.inheritsSet = null
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.scope = text/x-csharp
+		$0.VersionControlPolicy = $4
+	EndGlobalSection
+EndGlobal
