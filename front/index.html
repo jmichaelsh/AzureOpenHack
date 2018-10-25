@@ -39,34 +39,10 @@
             <input id="btn-input" type="text" class="form-control input-md" placeholder="Nome"><span class="input-group-btn">
                 <button class="btn btn-primary btn-md" id="btn-todo">Add Server</button>
             </span></div>
+
     </div>
     <div class="panel panel-container">
-        <div class="row"><div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-                <div class="panel panel-teal panel-widget border-right"><div class="row no-padding"><em class="fa fa-xl fa-server color-blue"></em>
-                        <div class="large">Name</div>
-                        <div class="text-muted">Server: 127.0.0.1:25565</div>
-                        <div class="text-muted">RCON: 127.0.0.1:25575</div></div>
-                        <a class="fa fa-window-close fa-2x color-red" style="position: absolute;top: 0;right: 0;"></a>
-                </div>
-            </div><div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-                <div class="panel panel-teal panel-widget border-right"><div class="row no-padding"><em class="fa fa-xl fa-server color-blue"></em>
-                        <div class="large">Name</div>
-                        <div class="text-muted">Server: 127.0.0.1:25565</div>
-                        <div class="text-muted">RCON: 127.0.0.1:25575</div></div>
-                        <a class="fa fa-window-close fa-2x color-red" style="position: absolute;top: 0;right: 0;"></a>
-                </div>
-            </div><div class="col-xs-6 col-md-3 col-lg-3 no-padding">
-                <div class="panel panel-teal panel-widget border-right"><div class="row no-padding"><em class="fa fa-xl fa-server color-blue"></em>
-                        <div class="large">Name</div>
-                        <div class="text-muted">Server: 127.0.0.1:25565</div>
-                        <div class="text-muted">RCON: 127.0.0.1:25575</div></div>
-                        <a class="fa fa-window-close fa-2x color-red" style="position: absolute;top: 0;right: 0;"></a>
-                </div>
-            </div>
-            
-            
-            
-            
+        <div class="row" id="row">
         </div><!--/.row-->
     </div>
     <script src="js/jquery-1.11.1.min.js"></script>
@@ -77,17 +53,7 @@
     <script src="js/easypiechart-data.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/custom.js"></script>
-    <script>
-        window.onload = function () {
-            var chart1 = document.getElementById("line-chart").getContext("2d");
-            window.myLine = new Chart(chart1).Line(lineChartData, {
-                responsive: true,
-                scaleLineColor: "rgba(0,0,0,.2)",
-                scaleGridLineColor: "rgba(0,0,0,.05)",
-                scaleFontColor: "#c5c7cc"
-            });
-        };
-    </script>
+    <script src="js/client.js"></script>
 </body>
 
 </html>
