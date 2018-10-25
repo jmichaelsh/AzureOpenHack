@@ -1,11 +1,47 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: azurefile
+provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+parameters:
+  skuName: Standard_LRS
+  storageAccount: openhackitauteam2
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: system:azure-cloud-provider
+rules:
+- apiGroups: ['']
+  resources: ['secrets']
+  verbs:     ['get','create']
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: system:azure-cloud-provider
+roleRef:
+  kind: ClusterRole
+  apiGroup: rbac.authorization.k8s.io
+  name: system:azure-cloud-provider
+subjects:
+- kind: ServiceAccount
+  name: persistent-volume-binder
+  namespace: kube-system
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: azure-managed-disk-default
+  name: disco
 spec:
   accessModes:
-  - ReadWriteOnce
-  storageClassName: default
+  - ReadWriteMany
+  storageClassName: azurefile
   resources:
     requests:
       storage: 5Gi
@@ -28,7 +64,7 @@ spec:
       - name: azure-minecraft-server
         image: openhack/minecraft-server:2.0
         volumeMounts:
-        - mountPath: "/mnt/azure"
+        - mountPath: "/data"
           name: volume
         env:
         - name: EULA
@@ -41,7 +77,7 @@ spec:
       volumes:
         - name: volume
           persistentVolumeClaim:
-            claimName: azure-managed-disk-default
+            claimName: disco
 ---
 apiVersion: v1
 kind: Service
