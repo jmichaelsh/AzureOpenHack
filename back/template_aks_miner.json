@@ -1,0 +1,156 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "disks_desafio2disk_name": {
+            "defaultValue": "desafio2disk",
+            "type": "String"
+        },
+        "components_minecraft_server_name": {
+            "defaultValue": "minecraft-server",
+            "type": "String"
+        },
+        "managedClusters_desafioAKSCluster_name": {
+            "defaultValue": "desafioAKSCluster",
+            "type": "String"
+        },
+        "alertrules_Failure_Anomalies___minecraft_server_name": {
+            "defaultValue": "Failure Anomalies - minecraft-server",
+            "type": "String"
+        },
+        "managedClusters_desafioAKSCluster_logAnalyticsWorkspaceResourceID": {
+            "defaultValue": "/subscriptions/b9049f27-f15e-41ae-8853-8bc37dce9630/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-b9049f27-f15e-41ae-8853-8bc37dce9630-eus",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalizado a partir do recurso: '/subscriptions/b9049f27-f15e-41ae-8853-8bc37dce9630/resourceGroups/desafio2/providers/Microsoft.Compute/disks/desafio2disk'.",
+            "type": "Microsoft.Compute/disks",
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            },
+            "name": "[parameters('disks_desafio2disk_name')]",
+            "apiVersion": "2018-06-01",
+            "location": "eastus",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "creationData": {
+                    "createOption": "Empty"
+                },
+                "diskSizeGB": 20
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalizado a partir do recurso: '/subscriptions/b9049f27-f15e-41ae-8853-8bc37dce9630/resourcegroups/desafio2/providers/Microsoft.ContainerService/managedClusters/desafioAKSCluster'.",
+            "type": "Microsoft.ContainerService/managedClusters",
+            "name": "[parameters('managedClusters_desafioAKSCluster_name')]",
+            "apiVersion": "2018-03-31",
+            "location": "eastus",
+            "scale": null,
+            "properties": {
+                "kubernetesVersion": "1.9.11",
+                "dnsPrefix": "desafioAKS-desafio2-b9049f",
+                "agentPoolProfiles": [
+                    {
+                        "name": "nodepool1",
+                        "count": 1,
+                        "vmSize": "Standard_DS2_v2",
+                        "osDiskSizeGB": 30,
+                        "storageProfile": "ManagedDisks",
+                        "maxPods": 110,
+                        "osType": "Linux"
+                    }
+                ],
+                "linuxProfile": {
+                    "adminUsername": "azureuser",
+                    "ssh": {
+                        "publicKeys": [
+                            {
+                                "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy55vLjsyx1q69sTzIRaDzmLzU6JHkPdMEME6AH1sxr919uYWnFy0xmnvlSOUtcE3/YYu6rVqZeb4TKwQrB7ogCzdDS8VLLv9QS3jLYlPdqFaqHzdmhSB135wVC+2fM6bAAvgt8mTmdOYPZQFeMTdMKgQCRgJ+Uj2u0hXtsVrvkiLtQp8anxstRvieGkkhJ5/Zq9bNTPBg8azT96hOqjVktxR7zFGEfGAxpd1eLswVIyimafRHMQBmnk86hFYJawNrg23FXKIsZ0DgU4YE+3xbe2iHU0tt9Xdiyfx1FQY/3C3TvYHqserz/x+xSMFiXhAw1cpKZfSduBK1uiGSftWj"
+                            }
+                        ]
+                    }
+                },
+                "servicePrincipalProfile": {
+                    "clientId": "5bde5f17-ed9c-4bab-bcea-bcddc9e8486d"
+                },
+                "addonProfiles": {
+                    "omsagent": {
+                        "enabled": true,
+                        "config": {
+                            "logAnalyticsWorkspaceResourceID": "[parameters('managedClusters_desafioAKSCluster_logAnalyticsWorkspaceResourceID')]"
+                        }
+                    }
+                },
+                "enableRBAC": true,
+                "networkProfile": {
+                    "networkPlugin": "kubenet",
+                    "podCidr": "10.244.0.0/16",
+                    "serviceCidr": "10.0.0.0/16",
+                    "dnsServiceIP": "10.0.0.10",
+                    "dockerBridgeCidr": "172.17.0.1/16"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalizado a partir do recurso: '/subscriptions/b9049f27-f15e-41ae-8853-8bc37dce9630/resourceGroups/desafio2/providers/microsoft.insights/alertrules/Failure Anomalies - minecraft-server'.",
+            "type": "microsoft.insights/alertrules",
+            "name": "[parameters('alertrules_Failure_Anomalies___minecraft_server_name')]",
+            "apiVersion": "2014-04-01",
+            "location": "East US",
+            "tags": {
+                "hidden-link:/subscriptions/b9049f27-f15e-41ae-8853-8bc37dce9630/resourceGroups/desafio2/providers/microsoft.insights/components/minecraft-server": "Resource"
+            },
+            "scale": null,
+            "properties": {
+                "name": "[parameters('alertrules_Failure_Anomalies___minecraft_server_name')]",
+                "description": "",
+                "isEnabled": true,
+                "condition": {
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+                    "dataSource": {
+                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+                        "resourceUri": "[resourceId('microsoft.insights/components', parameters('components_minecraft_server_name'))]",
+                        "metricNamespace": null,
+                        "metricName": "advanced::A3108E3D-5E26-44CF-B232-783F5E20EF10::ewAiAEgAeQBwAGUAcgBpAG8AbgBBAHAAcABsAGkAYwBhAHQAaQBvAG4AUwBpAGQAIgA6AG4AdQBsAGwALAAiAEgAeQBwAGUAcgBpAG8AbgBTAHUAYgBqAGUAYwB0AFMAaQBkACIAOgBuAHUAbABsACwAIgBIAHkAcABlAHIAaQBvAG4ATwBiAHMAZQByAHYAZQByAFMAaQBkACIAOgBuAHUAbABsACwAIgBDAHUAcwB0AG8AbQBlAHIAQQBjAGMAbwB1AG4AdABJAGQAIgA6ACIAMAAwADAAMAAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAwADAAMAAwADAAMAAwADAAIgAsACIAQQBwAHAAbABpAGMAYQB0AGkAbwBuAE4AYQBtAGUAIgA6AG4AdQBsAGwALAAiAEEAcABwAGwAaQBjAGEAdABpAG8AbgBJAGQAIgA6AG4AdQBsAGwALAAiAFAAcgBvAGYAaQBsAGUASQBkACIAOgAwACwAIgBXAGkAbgBkAG8AdwBTAGkAegBlAEkAbgBNAGkAbgB1AHQAZQBzACIAOgA2ADAALAAiAE0AZQB0AHIAaQBjAE4AYQBtAGUAIgA6ACIAIgAsACIAVABoAHIAZQBzAGgAbwBsAGQAIgA6ADIALgAwACwAIgBBAGwAZQByAHQAVABlAG0AcABsAGEAdABlAEkAZAAiADoAIgAiACwAIgBSAHUAbABlAEkAZAAiADoAIgAiACwAIgBSAHUAbABlAE4AYQBtAGUAIgA6ACIAIgAsACIAUgB1AGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AIgA6ACIAIgAsACIAUgBlAHMAbwB1AHIAYwBlAEkAZAAiADoAbgB1AGwAbAAsACIAUwB1AGIAcwBjAHIAaQBwAHQAaQBvAG4ASQBkACIAOgBuAHUAbABsACwAIgBBAGcAZwByAGUAZwBhAHQAZQBGAHUAbgBjAHQAaQBvAG4AIgA6ACIAIgAsACIAQwBvAG0AcABhAHIAaQBzAG8AbgBPAHAAZQByAGEAdABvAHIAIgA6ACIAewBcACIAQgBhAHMAZQBsAGkAbgBlAFQAaQBtAGUAcwBwAGEAbgBcACIAOgBcACIAMAAwADoANAAwADoAMAAwAFwAIgAsAFwAIgBJAG4AcwBpAGcAaAB0AHMAUwBlAHIAdgBpAGMAZQBMAGEAZwBcACIAOgBcACIAMAAwADoAMAAwADoAMAAwAFwAIgAsAFwAIgBCAHUAZgBmAGUAcgBUAGkAbQBlAFwAIgA6AFwAIgAwADAAOgAwADEAOgAwADAAXAAiACwAXAAiAEIAbABvAGIAUwB0AG8AcgBhAGcAZQBMAG8AZwBnAGkAbgBnAEUAbgBhAGIAbABlAGQAXAAiADoAZgBhAGwAcwBlACwAXAAiAFUAcwBlAHIAUwB1AHAAcAByAGUAcwBzAGkAbwBuAHMAXAAiADoAbgB1AGwAbAAsAFwAIgBQAHIAbwBmAGkAbABlAEkAZABcACIAOgAwACwAXAAiAEUAbQBhAGkAbABUAHkAcABlAFwAIgA6ADAALABcACIAUgBkAGQARgBhAGkAbAB1AHIAZQBzAFMAcABpAGsAZQBUAGgAcgBlAHMAaABvAGwAZABcACIAOgAzAC4AMAAsAFwAIgBSAGEAdwBQAHIAbwBhAGMAdABpAHYAZQBSAHUAbABlAEMAbwBuAGYAaQBnAFwAIgA6AG4AdQBsAGwAfQAiACwAIgBFAG4AYQBiAGwAZQBTAGUAbgBkAEUAbQBhAGkAbABUAG8AQwB1AHMAdABvAG0AIgA6AGYAYQBsAHMAZQAsACIAQwB1AHMAdABvAG0ARQBtAGEAaQBsAHMARQBuAGMAbwBkAGUAZAAiADoAIgAiACwAIgBFAG4AYQBiAGwAZQBTAGUAbgBkAEUAbQBhAGkAbABUAG8ATwB3AG4AZQByAHMAIgA6AGYAYQBsAHMAZQB9AA=="
+                    },
+                    "operator": "GreaterThan",
+                    "threshold": 2,
+                    "windowSize": "PT1H"
+                },
+                "action": {
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+                    "sendToServiceOwners": true,
+                    "customEmails": []
+                }
+            },
+            "dependsOn": [
+                "[resourceId('microsoft.insights/components', parameters('components_minecraft_server_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalizado a partir do recurso: '/subscriptions/b9049f27-f15e-41ae-8853-8bc37dce9630/resourceGroups/desafio2/providers/microsoft.insights/components/minecraft-server'.",
+            "type": "microsoft.insights/components",
+            "kind": "other",
+            "name": "[parameters('components_minecraft_server_name')]",
+            "apiVersion": "2015-05-01",
+            "location": "eastus",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "Application_Type": "other",
+                "Flow_Type": "Redfield",
+                "Request_Source": "IbizaAIExtension",
+                "HockeyAppId": null,
+                "SamplingPercentage": null
+            },
+            "dependsOn": []
+        }
+    ]
+}

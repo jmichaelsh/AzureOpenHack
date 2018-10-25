@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{E9F9B768-1563-481A-A066-732786F78BBE}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/IO.Swagger/Controllers/DefaultApi.cs">
+    <Files>
+      <File FileName="src/IO.Swagger/Controllers/DefaultApi.cs" Line="60" Column="29" />
+      <File FileName="src/IO.Swagger/Models/Server.cs" Line="35" Column="9" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.IO.Swagger PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
