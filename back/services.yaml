@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-minecraft-server
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 25565
+    name: client
+  - port: 25575
+    name: remote
+  selector:
+    app: azure-minecraft-server

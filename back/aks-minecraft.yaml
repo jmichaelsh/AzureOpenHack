@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-minecraft-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-minecraft-server
+  template:
+    metadata:
+      labels:
+        app: azure-minecraft-server
+    spec:
+      containers:
+      - name: azure-minecraft-server
+        image: openhack/minecraft-server:2.0
+        volumeMounts:
+        - mountPath: "/data"
+          name: volume
+        env:
+        - name: EULA
+          value: "TRUE"
+        ports:
+        - containerPort: 25565
+          name: client
+        - containerPort: 25575
+          name: remote
+      volumes:
+        - name: volume
+          persistentVolumeClaim:
+            claimName: disco
