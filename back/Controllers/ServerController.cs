@@ -30,7 +30,7 @@ namespace Backend_API_Minecraft.Controllers
         [Route("//servers")]
         [SwaggerOperation("ServersDelete")]
         [SwaggerResponse(statusCode: 204, type: typeof(V1Status), description: "Apaga um Server")]
-        public virtual IActionResult ServersDelete(string servername, string token)
+        public virtual IActionResult ServersDelete(string servername)
         {
             try
             {
