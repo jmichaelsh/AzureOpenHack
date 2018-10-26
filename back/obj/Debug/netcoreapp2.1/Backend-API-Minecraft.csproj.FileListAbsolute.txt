@@ -26,3 +26,15 @@
 /Users/michael/Documents/GitHub/AzureOpenHack/back/obj/Debug/netcoreapp2.1/Backend-API-Minecraft.dll
 /Users/michael/Documents/GitHub/AzureOpenHack/back/obj/Debug/netcoreapp2.1/Backend-API-Minecraft.pdb
 /Users/michael/Documents/GitHub/AzureOpenHack/back/obj/Debug/netcoreapp2.1/Backend-API-Minecraft.csprojAssemblyReference.cache
+/home/hacker3/AzureOpenHack/back/bin/Debug/netcoreapp2.1/Backend-API-Minecraft.deps.json
+/home/hacker3/AzureOpenHack/back/bin/Debug/netcoreapp2.1/Backend-API-Minecraft.runtimeconfig.json
+/home/hacker3/AzureOpenHack/back/bin/Debug/netcoreapp2.1/Backend-API-Minecraft.runtimeconfig.dev.json
+/home/hacker3/AzureOpenHack/back/bin/Debug/netcoreapp2.1/Backend-API-Minecraft.dll
+/home/hacker3/AzureOpenHack/back/bin/Debug/netcoreapp2.1/Backend-API-Minecraft.pdb
+/home/hacker3/AzureOpenHack/back/obj/Debug/netcoreapp2.1/Backend-API-Minecraft.csprojAssemblyReference.cache
+/home/hacker3/AzureOpenHack/back/obj/Debug/netcoreapp2.1/Backend-API-Minecraft.csproj.CoreCompileInputs.cache
+/home/hacker3/AzureOpenHack/back/obj/Debug/netcoreapp2.1/Backend-API-Minecraft.RazorAssemblyInfo.cache
+/home/hacker3/AzureOpenHack/back/obj/Debug/netcoreapp2.1/Backend-API-Minecraft.RazorAssemblyInfo.cs
+/home/hacker3/AzureOpenHack/back/obj/Debug/netcoreapp2.1/Backend-API-Minecraft.RazorTargetAssemblyInfo.cache
+/home/hacker3/AzureOpenHack/back/obj/Debug/netcoreapp2.1/Backend-API-Minecraft.dll
+/home/hacker3/AzureOpenHack/back/obj/Debug/netcoreapp2.1/Backend-API-Minecraft.pdb

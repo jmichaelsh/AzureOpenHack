@@ -3678,7 +3678,7 @@
     "System.ValueTuple/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BahUww/+mdP4ARCAh2RQhQTg13wYLVrBb9SYVgW8ZlrwjraGCXHGjo0oIiUfZ34LUZkMMR+RAzR7dEY4S1HeQQ==",
+      "sha512": "sha512-6FvjECwwsvwtdnm2uD91MlFEgId6C2SWsdZk23gFpynHQ9x5ruqjsfEadb0VNzpkEHDQ6cq31CXUv3ouT09EHA==",
       "path": "system.valuetuple/4.4.0",
       "hashPath": "system.valuetuple.4.4.0.nupkg.sha512"
     },
@@ -4168,7 +4168,7 @@
     "Microsoft.AspNetCore.Razor.Design/2.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-f8PKGcxiezL1RVqmnmrazj24Mj4KCTSXqwdotl7Lc+82h8iLV7ItxEIShTJakG7M9iw0ZuCocM0J/IhYesdQrg==",
+      "sha512": "sha512-BOK5fckW9v7xWjpEI6bPGwkjw10OPVASZcAa8HoWJo/0Mmg4Azddj92v8noU+YgvD/6zNZ9o/RiRXXKxk5rYwQ==",
       "path": "microsoft.aspnetcore.razor.design/2.1.1",
       "hashPath": "microsoft.aspnetcore.razor.design.2.1.1.nupkg.sha512"
     },
