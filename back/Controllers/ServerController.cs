@@ -35,6 +35,7 @@ namespace Backend_API_Minecraft.Controllers
             try
             {
                 var config = KubernetesClientConfiguration.BuildConfigFromConfigFile();
+
                 IKubernetes client = new Kubernetes(config);
 
                 var v1Status = client.DeleteNamespacedDeployment(body: new V1DeleteOptions(apiVersion: "apps/v1"), name: servername, namespaceParameter: "default");
@@ -102,7 +103,7 @@ namespace Backend_API_Minecraft.Controllers
 
             var config = KubernetesClientConfiguration.BuildConfigFromConfigFile();
             IKubernetes client = new Kubernetes(config);
-            Console.WriteLine("Starting Request!");
+
 
             var listDeploy = client.ListNamespacedDeployment("default");
             var listServices = client.ListNamespacedService("default");
@@ -163,14 +164,6 @@ namespace Backend_API_Minecraft.Controllers
                 var deployment = ObterYaml<V1Deployment>(servername, "./aks-minecraft.yaml");
 
                 var services = ObterYaml<V1Service>(servername, "./services.yaml");
-
-
-                //yaml.Metadata.Name = servername;
-                //yaml.Spec.Selector.MatchLabels["app"] = servername;
-                //yaml.Spec.Template.Metadata.Labels["app"] = servername;
-                //yaml.Spec.Template.Spec.Containers.First().Name = servername;
-                //yaml.Spec.Template.Spec.Containers.First().VolumeMounts.First().SubPath = servername;
-
 
 
                 var newDeployment = client.CreateNamespacedDeployment(

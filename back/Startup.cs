@@ -33,6 +33,8 @@ namespace Backend_API_Minecraft
             {
                 c.SwaggerDoc("v1", new Info { Title = "PaaS Minecraft API", Version = "v1" });
             });
+
+
         }
 
      
@@ -47,9 +49,8 @@ namespace Backend_API_Minecraft
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "PaaS Minecraft API v1");
+                c.SwaggerEndpoint("../swagger/v1/swagger.json", "PaaS Minecraft API v1");
             });
-
 
             // >CHANGE< CORS according to need
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials());

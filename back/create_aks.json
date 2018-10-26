@@ -1,35 +1,53 @@
 {
-  "location": "location1",
-  "tags": {
-    "tier": "production",
-    "archv2": ""
-  },
-  "properties": {
-    "kubernetesVersion": "",
-    "dnsPrefix": "dnsprefix1",
-    "agentPoolProfiles": [
-      {
-        "name": "nodepool1",
-        "count": 3,
-        "vmSize": "Standard_DS1_v2",
-        "osType": "Linux"
-      }
-    ],
-    "linuxProfile": {
-      "adminUsername": "azureuser",
-      "ssh": {
-        "publicKeys": [
-          {
-            "keyData": "keydata"
-          }
-        ]
-      }
+    "comments": "Generalized from resource: '/subscriptions/b9049f27-f15e-41ae-8853-8bc37dce9630/resourcegroups/desafio2/providers/Microsoft.ContainerService/managedClusters/desafioAKSCluster'.",
+    "type": "Microsoft.ContainerService/managedClusters",
+    "name": "[parameters('managedClusters_desafioAKSCluster_name')]",
+    "apiVersion": "2018-03-31",
+    "location": "eastus",
+    "scale": null,
+    "properties": {
+        "kubernetesVersion": "1.9.11",
+        "dnsPrefix": "desafioAKS-desafio2-b9049f",
+        "agentPoolProfiles": [
+            {
+                "name": "nodepool1",
+                "count": 1,
+                "vmSize": "Standard_DS2_v2",
+                "osDiskSizeGB": 30,
+                "storageProfile": "ManagedDisks",
+                "maxPods": 110,
+                "osType": "Linux"
+            }
+        ],
+        "linuxProfile": {
+            "adminUsername": "azureuser",
+            "ssh": {
+                "publicKeys": [
+                    {
+                        "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCy55vLjsyx1q69sTzIRaDzmLzU6JHkPdMEME6AH1sxr919uYWnFy0xmnvlSOUtcE3/YYu6rVqZeb4TKwQrB7ogCzdDS8VLLv9QS3jLYlPdqFaqHzdmhSB135wVC+2fM6bAAvgt8mTmdOYPZQFeMTdMKgQCRgJ+Uj2u0hXtsVrvkiLtQp8anxstRvieGkkhJ5/Zq9bNTPBg8azT96hOqjVktxR7zFGEfGAxpd1eLswVIyimafRHMQBmnk86hFYJawNrg23FXKIsZ0DgU4YE+3xbe2iHU0tt9Xdiyfx1FQY/3C3TvYHqserz/x+xSMFiXhAw1cpKZfSduBK1uiGSftWj"
+                    }
+                ]
+            }
+        },
+        "servicePrincipalProfile": {
+            "clientId": "5bde5f17-ed9c-4bab-bcea-bcddc9e8486d"
+        },
+        "addonProfiles": {
+            "omsagent": {
+                "enabled": true,
+                "config": {
+                    "logAnalyticsWorkspaceResourceID": "[parameters('managedClusters_desafioAKSCluster_logAnalyticsWorkspaceResourceID')]"
+                }
+            }
+        },
+        "enableRBAC": true,
+        "networkProfile": {
+            "networkPlugin": "kubenet",
+            "podCidr": "10.244.0.0/16",
+            "serviceCidr": "10.0.0.0/16",
+            "dnsServiceIP": "10.0.0.10",
+            "dockerBridgeCidr": "172.17.0.1/16"
+        }
     },
-    "servicePrincipalProfile": {
-      "clientId": "clientid",
-      "secret": "secret"
-    },
-    "addonProfiles": {},
-    "enableRBAC": false
-  }
+    "dependsOn": []
 }
