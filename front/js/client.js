@@ -1,8 +1,10 @@
 function get() {
+    x = 10;
     fetch('http://team2-openhack.eastus.cloudapp.azure.com/api/servers')
     .then(function(response) {
         show(response.json());
     })
+
 }
 
 function del(name){
@@ -22,7 +24,7 @@ function add(name) {
     .then(response => console.log(response))
 }
 
-  get();
+  setInterval(get, 5000);
 
   function show(serverList) {
       $('#row').html('');
