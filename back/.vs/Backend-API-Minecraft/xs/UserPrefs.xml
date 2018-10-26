@@ -1,13 +1,24 @@
 ﻿<Properties StartupConfiguration="{1E43D09E-3495-466E-BD74-D37AA136BAFC}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/ServerController.cs">
     <Files>
-      <File FileName="Controllers/ServerController.cs" Line="81" Column="24" />
+      <File FileName="Controllers/ServerController.cs" Line="56" Column="38" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Backend-API-Minecraft" expanded="True">
-            <Node name="Backend-API-Minecraft" selected="True" />
+            <Node name="Backend-API-Minecraft" expanded="True">
+              <Node name="Attributes" expanded="True" />
+              <Node name="Builder" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="ServerController.cs" selected="True" />
+              </Node>
+              <Node name="Factory" expanded="True" />
+              <Node name="Helper" expanded="True" />
+              <Node name="Model" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Utility" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
@@ -16,7 +27,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Backend-API-Minecraft PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/michael/Documents/GitHub/AzureOpenHack/back/Controllers/ServerController.cs" relfile="Controllers/ServerController.cs" line="172" column="1" />
+      <Breakpoint file="/Users/michael/Documents/GitHub/AzureOpenHack/back/Controllers/ServerController.cs" relfile="Controllers/ServerController.cs" line="187" column="28" />
+      <Breakpoint file="/Users/michael/Documents/GitHub/AzureOpenHack/back/Controllers/ServerController.cs" relfile="Controllers/ServerController.cs" line="141" column="1" />
+      <Breakpoint file="/Users/michael/Documents/GitHub/AzureOpenHack/back/Controllers/ServerController.cs" relfile="Controllers/ServerController.cs" line="56" column="1" />
+      <Breakpoint file="/Users/michael/Documents/GitHub/AzureOpenHack/back/Controllers/ServerController.cs" relfile="Controllers/ServerController.cs" line="57" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

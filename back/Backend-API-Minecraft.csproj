@@ -11,6 +11,7 @@
     <Folder Include="Helper\" />
     <Folder Include="Factory\" />
     <Folder Include="Utility\" />
+    <Folder Include="Builder\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,9 +21,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="3.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="3.0.0" />
-    <PackageReference Include="KubeClient" Version="2.1.7" />
-    <PackageReference Include="KubeClient.Extensions.KubeConfig" Version="2.1.7" />
     <PackageReference Include="KubernetesClient" Version="1.3.1-gdf3381607a" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
 
   <ItemGroup>
