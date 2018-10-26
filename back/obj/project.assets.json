@@ -5389,7 +5389,7 @@
       ]
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.1": {
-      "sha512": "f8PKGcxiezL1RVqmnmrazj24Mj4KCTSXqwdotl7Lc+82h8iLV7ItxEIShTJakG7M9iw0ZuCocM0J/IhYesdQrg==",
+      "sha512": "BOK5fckW9v7xWjpEI6bPGwkjw10OPVASZcAa8HoWJo/0Mmg4Azddj92v8noU+YgvD/6zNZ9o/RiRXXKxk5rYwQ==",
       "type": "package",
       "path": "microsoft.aspnetcore.razor.design/2.1.1",
       "files": [
@@ -11842,10 +11842,11 @@
       ]
     },
     "System.ValueTuple/4.4.0": {
-      "sha512": "BahUww/+mdP4ARCAh2RQhQTg13wYLVrBb9SYVgW8ZlrwjraGCXHGjo0oIiUfZ34LUZkMMR+RAzR7dEY4S1HeQQ==",
+      "sha512": "6FvjECwwsvwtdnm2uD91MlFEgId6C2SWsdZk23gFpynHQ9x5ruqjsfEadb0VNzpkEHDQ6cq31CXUv3ouT09EHA==",
       "type": "package",
       "path": "system.valuetuple/4.4.0",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/MonoAndroid10/_._",
@@ -12233,23 +12234,23 @@
     ]
   },
   "packageFolders": {
-    "/Users/michael/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "/home/hacker3/.nuget/packages/": {},
+    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/michael/Documents/GitHub/AzureOpenHack/back/Backend-API-Minecraft.csproj",
+      "projectUniqueName": "/home/hacker3/AzureOpenHack/back/Backend-API-Minecraft.csproj",
       "projectName": "Backend-API-Minecraft",
-      "projectPath": "/Users/michael/Documents/GitHub/AzureOpenHack/back/Backend-API-Minecraft.csproj",
-      "packagesPath": "/Users/michael/.nuget/packages/",
-      "outputPath": "/Users/michael/Documents/GitHub/AzureOpenHack/back/obj",
+      "projectPath": "/home/hacker3/AzureOpenHack/back/Backend-API-Minecraft.csproj",
+      "packagesPath": "/home/hacker3/.nuget/packages/",
+      "outputPath": "/home/hacker3/AzureOpenHack/back/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/michael/.config/NuGet/NuGet.Config"
+        "/home/hacker3/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -12271,44 +12272,44 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "KubernetesClient": {
+            "target": "Package",
+            "version": "[1.3.1-gdf3381607a, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.1.1"
+            "version": "[2.1.1, )",
+            "autoReferenced": true
           },
           "Microsoft.Azure.Management.ResourceManager": {
             "target": "Package",
-            "version": "2.0.0-preview"
+            "version": "[2.0.0-preview, )"
+          },
+          "Microsoft.NETCore.App": {
+            "target": "Package",
+            "version": "[2.1.0, )",
+            "autoReferenced": true
           },
           "Microsoft.Rest.ClientRuntime.Azure.Authentication": {
             "target": "Package",
-            "version": "2.3.4"
-          },
-          "Swashbuckle.AspNetCore.Swagger": {
-            "target": "Package",
-            "version": "3.0.0"
+            "version": "[2.3.4, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
-            "version": "3.0.0"
+            "version": "[3.0.0, )"
           },
           "Swashbuckle.AspNetCore.Annotations": {
             "target": "Package",
-            "version": "3.0.0"
+            "version": "[3.0.0, )"
           },
-          "KubernetesClient": {
+          "Swashbuckle.AspNetCore.Swagger": {
             "target": "Package",
-            "version": "1.3.1-gdf3381607a"
+            "version": "[3.0.0, )"
           },
           "System.Net.Http": {
             "target": "Package",
-            "version": "4.3.4"
-          },
-          "Microsoft.NETCore.App": {
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "2.1.0",
-            "autoReferenced": true
+            "version": "[4.3.4, )"
           }
         },
         "imports": [
