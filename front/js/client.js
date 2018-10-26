@@ -1,7 +1,8 @@
 function get() {
     fetch('http://team2-openhack.eastus.cloudapp.azure.com/api/servers')
     .then(function(response) {
-        show(response.json());
+
+        response.json().then(p => show(p));
     })
 }
 
